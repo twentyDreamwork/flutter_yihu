@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:path_provider/path_provider.dart';
 import 'dart:async';
 import 'dart:io';
 import '../config/index.dart';
@@ -44,4 +45,32 @@ Future getRequest(url, data) async {
   } catch (e) {
     return print('error:::${e}');
   }
+}
+
+/*
+   * 下载文件
+   */
+Future downloadFile(urlPath) async {
+  final directory = await getExternalStorageDirectory();
+  var _localPath = directory.path + '/Download';
+  final savedDir = Directory(_localPath);
+  // 判断下载路径是否存在
+  bool hasExisted = await savedDir.exists();
+  // 不存在就新建路径
+  if (!hasExisted) {
+    savedDir.create();
+  }
+  Response response;
+  Dio dio = new Dio();
+  try {
+    response = await dio.download(urlPath, _localPath,
+        onReceiveProgress: (int count, int total) {
+      //进度
+      print("$count $total");
+    });
+    print('downloadFile success---------${response.data}');
+  } on DioError catch (e) {
+    print('downloadFile error---------$e');
+  }
+  return response.data;
 }

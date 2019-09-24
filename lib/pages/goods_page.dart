@@ -164,7 +164,7 @@ class _GoodsPageState extends State<GoodsPage>
 
   void _getGoods() {
     print(goodsList);
-    var formPage = "?id=${categoryId}&page=${page}&limit=10";
+    var formPage = "?classifyId=${categoryId}&page=${page}&limit=10";
     getRequest('queryAllClassifyByParentId', formPage).then((val) {
       var data = json.decode(val.toString());
       List<Map> newGoodsList = (data['result']['list'] as List).cast();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yihu/pages/integralGoods_page.dart';
+import 'package:yihu/pages/integral/integralGoods_page.dart';
 import 'package:yihu/util/DataUtils.dart';
 import '../config/index.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

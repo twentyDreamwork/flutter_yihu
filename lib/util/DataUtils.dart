@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yihu/config/http_conf.dart';
 import 'dart:async';
@@ -101,26 +103,28 @@ class DataUtils {
 //请求微信登录用户信息
   static Future<String> login() async {
     if (isLogin() != null) {
-      fluwx.sendAuth(scope: "snsapi_userinfo", state: "wechar_sdk_demo_test");
-      fluwx.responseFromAuth.listen((data) async {
-        print(servicePath['getWeixinInfo'] +
-            "?appid=" +
-            APPID +
-            "&secret=" +
-            SERCRET +
-            "&code=${data.code}&platforms=1");
-        // final response = await new Dio().get(servicePath['getWeixinInfo'] +
-        //     "?appid=" +
-        //     APPID +
-        //     "&secret=" +
-        //     SERCRET +
-        //     "&code=${data.code}&platforms=1");
-        // SharedPreferences sp = await SharedPreferences.getInstance();
-        // await sp.setString(SP_USER_NICK_NAME, response.data['nickname']);
-        // await sp.setString(SP_USER_UNIONID, response.data['unionid']);
-        // await sp.setString(SP_USER_HEADIMGURL, response.data['headimgurl']);
-        // await sp.setBool(SP_IS_LOGIN, true);
-      });
+      // fluwx.sendAuth(scope: "snsapi_userinfo", state: "wechar_sdk_demo_test");
+      // fluwx.responseFromAuth.listen((data) async {
+      //   print(servicePath['getWeixinInfo'] +
+      //       "?appid=" +
+      //       APPID +
+      //       "&secret=" +
+      //       SERCRET +
+      //       "&code=${data.code}&platforms=1");
+      //   final response = await new Dio().get(servicePath['getWeixinInfo'] +
+      //       "?appid=" +
+      //       APPID +
+      //       "&secret=" +
+      //       SERCRET +
+      //       "&code=${data.code}&platforms=1");
+      //   Map user = json.decode(response.toString());
+      //   print(user['result']['nickname']);
+      //   SharedPreferences sp = await SharedPreferences.getInstance();
+      //   await sp.setString(SP_USER_NICK_NAME, user['result']['nickname']);
+      //   await sp.setString(SP_USER_UNIONID, user['result']['unionid']);
+      //   await sp.setString(SP_USER_HEADIMGURL, user['result']['headimgurl']);
+      //   await sp.setBool(SP_IS_LOGIN, true);
+      // });
     }
 
     return "success";

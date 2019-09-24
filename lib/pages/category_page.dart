@@ -165,8 +165,8 @@ class _CategoryPageState extends State<CategoryPage> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                              width: ScreenUtil().setWidth(100),
-                              margin: EdgeInsets.all(10.0),
+                              width: ScreenUtil().setWidth(115),
+                              margin: EdgeInsets.all(5.0),
                               child: Column(
                                 children: <Widget>[
                                   CachedNetworkImage(
@@ -196,12 +196,6 @@ class _CategoryPageState extends State<CategoryPage> {
                   ),
                 ],
               ));
-
-          // return Text(
-          //   articles[index].classifyName,
-          //   style: TextStyle(fontSize: 16, color: Color(0xff666666)),
-          // );
-          //点击事件
         },
       ).toList(),
     );
